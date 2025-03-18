@@ -42,6 +42,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -68,6 +69,7 @@ const attendanceRoutes = require("./routes/attendanceRoutes");
 app.use("/users", users);
 app.use("/leave-requests", leaveRoutes);
 app.use("/attendance", attendanceRoutes);
+app.use("/dashboard", dashboardRoutes); // ✅ Added Dashboard Route
 
 // Base API Route
 app.get("/", (req, res) => {
